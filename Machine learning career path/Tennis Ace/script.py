@@ -35,26 +35,48 @@ print(df[df['Player'] == 'Ivan Dodig']) # Ivan appears 9 times
 # So the y-axis is total winnings and x-axis is number of appearances (1 to 9)
 
 # Plotting total winnings compared to appearances (GitHub Copilot was used here)
+plt.figure()
 plt.scatter(df['Player'].value_counts(), df.groupby('Player')['Winnings'].sum())
 plt.xlabel('Number of Appearances')
-plt.ylabel('Total Winnings')
+plt.ylabel('Total Winnings [USD]')
 plt.title('Total Winnings vs Appearances')
 plt.show()
 
+# Here seems to be no correlation, weirdly enough!
+# I think this is cause an misleading representation.
 
+# Lets try and plot the winnings compared to the ranking
+plt.figure()
+plt.scatter(df['Ranking'], df['Winnings'])
+plt.xlabel('Ranking')
+plt.ylabel('Winnings [USD]')
+plt.title('Yearly Winnings vs Ranking')
+plt.show()
 
+# Here we can see a correlation!
+# The higher the ranking (1 is highest), the higher the winnings
 
+# Lets try and compare winnings to the year
+plt.figure()
+plt.scatter(df['Year'], df['Winnings'])
+plt.xlabel('Year')
+plt.ylabel('Winnings [USD]')
+plt.title('Yearly Winnings')
+plt.show()
+# Its a bit hard to get anything useful from this plot
+# Lets try and make it more visually clear
 
+total_yearly_winnings = df['Winnings'].groupby(df['Year']).sum()
+#years = df['Year'].groupby(df['Year'])
 
+# Make a boxplot for each year
+years = df['Year'].unique()
 
+plt.figure()
+for year in years:
+    plt.boxplot(df['Winnings'].groupby(df['Year']).get_group(year), positions=[year])
 
-
-
-
-
-
-
-
+# This actually turned out to be a great plot!
 
 
 ## perform single feature linear regressions here:
