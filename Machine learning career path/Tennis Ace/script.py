@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 
-# load and investigate the data here:
+# %% load and investigate the data here:
 df = pd.read_csv('./tennis_stats.csv')
 
 #print(df.head())
@@ -22,7 +22,7 @@ print(df[df['Player'] == 'Ivan Dodig']) # Ivan appears 9 times
 # It seems that the players are appearing multiple 
 # times because of different years!
 
-# perform exploratory analysis here:
+# %% perform exploratory analysis here:
 
 # We have 4 different outcomes:
 # Wins: number of matches won in a year
@@ -77,32 +77,21 @@ for year in years:
     plt.boxplot(df['Winnings'].groupby(df['Year']).get_group(year), positions=[year])
 
 # This actually turned out to be a great plot!
+# We see that the average stays the same, however 
+# we get more outliers (big prize money) as the year increases  
 
 
-## perform single feature linear regressions here:
+# %% perform single feature linear regressions here:
 
+# Initialize the regressor
+regressor = LinearRegression()
 
+# Get X and y values
+X = df[['Ranking']]
+y = df['Winnings']
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## perform two feature linear regressions here:
+# Split into test and training data
+x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=6)
 
 
 
@@ -124,6 +113,28 @@ for year in years:
 
 
 
+# %% perform two feature linear regressions here:
 
-## perform multiple feature linear regressions here:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# %% perform multiple feature linear regressions here:
 # %%
