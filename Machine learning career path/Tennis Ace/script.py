@@ -84,56 +84,71 @@ for year in years:
 # %% perform single feature linear regressions here:
 
 # Initialize the regressor
-regressor = LinearRegression()
+lr = LinearRegression()
 
 # Get X and y values
-X = df[['Ranking']]
+X_label = 'Aces'
+X = df[[X_label]]
 y = df['Winnings']
 
 # Split into test and training data
 x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=6)
 
+# Fit data
+lr.fit(x_train, y_train)
 
+# Predict
+y_predict = lr.predict(x_test)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Plot the results
+plt.figure()
+plt.scatter(x_test, y_test, label='Actual')
+plt.plot(x_test, y_predict, label='Predicted', color='red')
+plt.xlabel(X_label)
+plt.ylabel('Winnings [USD]')
+plt.legend()
+plt.title(X_label + ' vs Winnings')
+plt.show()
 
 # %% perform two feature linear regressions here:
 
+# First we need to extract the features we want to use
+X = df[['BreakPointsOpportunities', 'Aces']] # Alternatively we could use FirstServeReturnPointsWon
 
+# Split into test and training data
+x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=6)
 
+# Fit data
+lr.fit(x_train, y_train)
 
+# Predict
+y_predict = lr.predict(x_test)
 
+# Plot the results
+# We can't plot this as a 2D plot, so we will plot the residuals
+plt.figure()
+plt.scatter(y_test, y_predict - y_test)
+plt.xlabel('Actual Winnings [USD]')
+plt.ylabel('Residuals')
+plt.title('Residuals of 2 feature linear regression')
+plt.show()
 
+# We can also plot the y_predict vs y_test
+plt.figure()
+plt.scatter(y_test, y_predict)
+plt.xlabel('Actual Winnings [USD]')
+plt.ylabel('Predicted Winnings [USD]')
+plt.title('Predicted vs Actual Winnings')
+# Limit the x and y axis to be the same
+plt.xlim(0, 1000000)
+plt.ylim(0, 1000000)
+plt.show()
 
+# Lets calculate the R^2 score
+print('R^2 score for test:', lr.score(x_test, y_test))
+print('R^2 score for train:', lr.score(x_train, y_train))
 
-
-
-
-
-
-
-
-
-
-
-
-
+# The R^2 score is 0.82, which is quite good! (>0.7 is good)
 
 
 # %% perform multiple feature linear regressions here:
