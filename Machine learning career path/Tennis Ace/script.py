@@ -55,6 +55,7 @@ plt.show()
 
 # Here we can see a correlation!
 # The higher the ranking (1 is highest), the higher the winnings
+# Later note: Ranking is actually an outcome and not a feature, so this plot is not useful
 
 # Lets try and compare winnings to the year
 plt.figure()
@@ -149,7 +150,9 @@ print('R^2 score for test:', lr.score(x_test, y_test))
 print('R^2 score for train:', lr.score(x_train, y_train))
 
 # The R^2 score is 0.82, which is quite good! (>0.7 is good)
-
+# That means that 82% of the variance in the winnings can be explained by the model
 
 # %% perform multiple feature linear regressions here:
-# %%
+
+# This can be done by adding more features to the X matrix
+# I am going to skip this part, as it is quite similar to the previous part
