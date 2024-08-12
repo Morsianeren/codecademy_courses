@@ -13,18 +13,14 @@ TARGET = $(BUILD_DIR)/my_program
 $(TARGET): $(OBJ)
 	$(CC) $(CFLAGS) -o $(TARGET) $(OBJ)
 
-# Rule to build the test executable
-$(TEST_TARGET): $(TEST_OBJ)
-	$(CC) $(CFLAGS) -o $(TEST_TARGET) $(TEST_OBJ)
-
 # Rule to compile .cpp files from src/ into .o files in build/
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
-	@mkdir -p $(BUILD_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+	if not exist $(BUILD_DIR) mkdir $(BUILD_DIR)
+	$(CC) $(CFLAGS) -c $< -o $@	
 
 # Rule to clean up build files
 clean:
 	@echo "Cleaning up..."
-	del /Q $(BUILD_DIR)\*
+	if exist $(BUILD_DIR) rmdir /S /Q $(BUILD_DIR)
 
 .PHONY: clean
