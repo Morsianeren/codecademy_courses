@@ -20,11 +20,7 @@ int main() {
     misses++;
   }
 
-  // Task 6
-  if (answer == codeword) {
-    std::cout << "Hooray! You saved the person and earned a medal of honor!\n";
-  } else {
-    std::cout << "Oh no! The UFO just flew away with another person!\n";
-  }
+  // Task 7
+  end_game(answer, codeword);
 
 }
