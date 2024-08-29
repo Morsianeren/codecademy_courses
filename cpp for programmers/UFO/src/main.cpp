@@ -33,6 +33,16 @@ int main() {
     std::cout << "Please enter your guess:\n";
     std::cin >> letter;
 
+    // Task 15 & 16
+    char c;
+    for (int i = 0; i < codeword.length(); i++) {
+      c = codeword[i];
+      if (c == letter) {
+        guess = true;
+        answer[i] = letter;
+      }
+    }
+
     misses++;
   }
 
