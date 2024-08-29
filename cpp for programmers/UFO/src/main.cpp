@@ -28,6 +28,14 @@ int main() {
     for (auto iter: incorrect) {
       std::cout << iter << " ";
     }
+    std::cout << "\n";
+
+    // Task 12
+    std::cout << "Codeword: ";
+    for (auto iter: answer) {
+      std::cout << iter << " ";
+    }
+    std::cout << "\n";
     
     misses++;
   }
