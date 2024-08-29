@@ -3,5 +3,7 @@
 
 int main() {
 
+  // Task 2
+  greet();
 
 }

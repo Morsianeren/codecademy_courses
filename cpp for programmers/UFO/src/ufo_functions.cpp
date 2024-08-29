@@ -1,9 +1,14 @@
-#include <iostream>
-#include <vector>
+#include "../include/ufo_functions.h"
 
 // Define functions
 
-
+void greet(){
+  std::cout <<  "=============\n" <<
+                "UFO: The Game\n" <<
+                "=============\n" <<
+                "Instructions: save your friend from alien abduction\n" <<
+                "by guessing the letters in the codeword.\n";
+}
 
 
 void display_misses(int misses) {
