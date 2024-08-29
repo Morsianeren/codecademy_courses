@@ -16,7 +16,9 @@ int main() {
   // Task 5
   while((answer != codeword) && (misses < 7)) {
 
-
+    // Task 9
+    display_misses(misses);
+    
     misses++;
   }
 
