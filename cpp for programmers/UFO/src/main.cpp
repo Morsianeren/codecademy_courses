@@ -17,6 +17,9 @@ int main() {
   // Task 4
   int misses = 0;
 
+  // Task 14
+  char letter;
+
   // Task 5
   while((answer != codeword) && (misses < 7)) {
 
@@ -25,6 +28,10 @@ int main() {
 
     // Task 13
     display_status(&incorrect, &answer);
+
+    // Task 14
+    std::cout << "Please enter your guess:\n";
+    std::cin >> letter;
 
     misses++;
   }
