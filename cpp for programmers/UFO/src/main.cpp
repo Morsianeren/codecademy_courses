@@ -53,6 +53,9 @@ int main() {
       misses++;
     }
 
+    // Task 19
+    guess = false;
+
   }
 
   // Task 7
