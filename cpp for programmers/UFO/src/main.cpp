@@ -50,9 +50,9 @@ int main() {
     else {
       std::cout << "Incorrect! The tractor beam pulls the person in further.\n";
       incorrect.push_back(letter);
+      misses++;
     }
 
-    misses++;
   }
 
   // Task 7
