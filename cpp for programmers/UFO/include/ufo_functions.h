@@ -8,3 +8,6 @@ void display_misses(int misses);
 void greet();
 
 void end_game(std::string answer, std::string codeword);
+
+// Task 13
+void display_status(const std::vector<char>* incorrect, const std::string* answer);

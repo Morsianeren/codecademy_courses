@@ -23,20 +23,9 @@ int main() {
     // Task 9
     display_misses(misses);
 
-    // Task 11
-    std::cout << "Incorrect guesses:\n";
-    for (auto iter: incorrect) {
-      std::cout << iter << " ";
-    }
-    std::cout << "\n";
+    // Task 13
+    display_status(&incorrect, &answer);
 
-    // Task 12
-    std::cout << "Codeword: ";
-    for (auto iter: answer) {
-      std::cout << iter << " ";
-    }
-    std::cout << "\n";
-    
     misses++;
   }
 

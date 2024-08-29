@@ -19,6 +19,22 @@ void end_game(std::string answer, std::string codeword){
   }
 }
 
+void display_status(const std::vector<char>* incorrect, const std::string* answer) {
+  // Task 11
+    std::cout << "Incorrect guesses:\n";
+    for (auto iter: *incorrect) {
+      std::cout << iter << " ";
+    }
+    std::cout << "\n";
+
+    // Task 12
+    std::cout << "Codeword: ";
+    for (auto iter: *answer) {
+      std::cout << iter << " ";
+    }
+    std::cout << "\n";
+}
+
 void display_misses(int misses) {
 
   if (misses == 0 || misses == 1) {
