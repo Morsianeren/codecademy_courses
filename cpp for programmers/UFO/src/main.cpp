@@ -11,7 +11,7 @@ int main() {
   std::string answer = "__________";
   
   // Task 10
-  std::vector<char*> incorrect;
+  std::vector<char> incorrect;
   bool guess = false;
 
   // Task 4
@@ -24,7 +24,10 @@ int main() {
     display_misses(misses);
 
     // Task 11
-    std::cout << "Incorrect guesses: " << incorrect << "\n";
+    std::cout << "Incorrect guesses:\n";
+    for (auto iter: incorrect) {
+      std::cout << iter << " ";
+    }
     
     misses++;
   }
