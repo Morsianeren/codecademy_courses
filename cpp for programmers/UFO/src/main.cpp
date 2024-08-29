@@ -15,9 +15,16 @@ int main() {
 
   // Task 5
   while((answer != codeword) && (misses < 7)) {
-    
+
 
     misses++;
+  }
+
+  // Task 6
+  if (answer == codeword) {
+    std::cout << "Hooray! You saved the person and earned a medal of honor!\n";
+  } else {
+    std::cout << "Oh no! The UFO just flew away with another person!\n";
   }
 
 }
