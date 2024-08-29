@@ -22,6 +22,9 @@ int main() {
 
     // Task 9
     display_misses(misses);
+
+    // Task 11
+    std::cout << "Incorrect guesses: " << incorrect << "\n";
     
     misses++;
   }
