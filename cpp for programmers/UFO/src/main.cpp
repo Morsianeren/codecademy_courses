@@ -13,4 +13,11 @@ int main() {
   // Task 4
   int misses = 0;
 
+  // Task 5
+  while((answer != codeword) && (misses < 7)) {
+    
+
+    misses++;
+  }
+
 }
