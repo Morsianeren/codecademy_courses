@@ -9,6 +9,10 @@ int main() {
   // Task 3
   std::string codeword = "codecademy";
   std::string answer = "__________";
+  
+  // Task 10
+  std::vector<char*> incorrect;
+  bool guess = false;
 
   // Task 4
   int misses = 0;
